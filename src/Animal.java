@@ -31,7 +31,7 @@ public class Animal {
         this.breed = breed;
         this.description = description;
 
-        //build master list:
+        //build master:
 
         listBuilder.add(indexNum);
         listBuilder.add(name);

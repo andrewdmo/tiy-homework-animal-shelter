@@ -6,58 +6,67 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by andrewdmo on 8/19/16.
  */
 public class MenuService {
-    public MenuService() {
+  //  int preNum = 0;
+
+    public  MenuService() {
         System.out.println("\n-+- Welcome to Noah's Park, human user!! -+- \n | \n-+- ...we're all endangered here -+-\n");
 
         //(default animals:)
         Animal example1 = new Animal("Fido", "dog", "wolf", "He's a runt");
-        Animal example2 = new Animal("Simba", "cat", "scardy", "one life left");
+        Animal example2 = new Animal("Simba", "cat", "scaredy", "1 life left");
     }
+    public static int waitForInt(String nextPrompt) {
 
-    public static int waitForInt() {
-
-        System.out.println("\n-+- Mane Menewe: -+-\n" + "\n" +
+        System.out.println("-+- Mane Menewe: -+-\n" + "\n" +
             "1) List critters\n" +
-            "2) Create a critter\n" +
-            "3) View critter details\n" +
-            "4) Edit a critter\n" +
-            "5) Delete a critter\n" +
+            "2) Create critter\n" +
+            "3) Critter specifics \n" +
+            "4) Edit critter\n" +
+            "5) Delete critter\n" +
             "6) Quit(ter)\n");
 
-        return (intToInput("Enter a number, mortal:"));
+    return intToInput(nextPrompt);
+//        return intToInput("Which number, mortal:?:");
     }
 
     public static int intToInput(String message) {
 
-        System.out.println(message);
-        Scanner action = new Scanner(System.in);
-        String userInput = action.nextLine();
+//            int zeroNum = preNum;
+//            try {System.out.println(zeroNum);
+//                zeroNum
+//                ;
+//            } catch (Exception f) {intToInput("TEST0", 0);
+//
+//            }
 
-        AtomicInteger privInput = new AtomicInteger();
-        //credit to IntelliJ:
-        try {
-            privInput.set(Integer.parseInt(userInput));
-            if (privInput.get() > 6 || privInput.get() < 1) {
-                intToInput("Noah pities the fool, choose a number in range:"/*, privInput*/);
+            System.out.println(message);
+            Scanner action = new Scanner(System.in);
+            String userInput = action.nextLine();
+
+            //credit to IntelliJ:
+            AtomicInteger privInput = new AtomicInteger();
+
+            try {
+                privInput.set(Integer.parseInt(userInput));
+                // int preNum = privInput.get();
+
+                if (privInput.get() > 6 || privInput.get() < 1) {
+                    return waitForInt("Noah pities the fool!...number in range:");
+                    //preNum = privInput.get();
+                }
+            } catch (Exception e) {
+                return waitForInt("Noah pities fools that can't tell letters from numbers, try again, Darwin:");
+
             }
-        } catch (Exception e) {
-            intToInput("Noah pities fools that can't tell letters from numbers, try again:"/*, privInput*/);
-
+            return privInput.get();
         }
-//            try {
-//                privInput = Integer.parseInt(userInput);
-//            } catch (Exception e2) {
-//                intToInput("fail");
-//                privInput = 1;
-        return privInput.get();
-    }
 
 
     public static void listAnimal() {
 
         //instantiate:
         String listAnimal = AnimalsService.makeList();
-        System.out.println("\n-+- List o' Critters currently aboard: -+-\n");
+        System.out.println("\n-+- Critters aboard: -+-\n");
         System.out.println(listAnimal);
     }
 
@@ -66,148 +75,118 @@ public class MenuService {
         //instantiate::
         AnimalsService newAnimal = new AnimalsService();
 
-        System.out.println("-+- Create a Critter -+-\n");
+        System.out.println("-+- Create Critter -+-\n");
         //name:
-        System.out.println(" Critter name:");
+        System.out.println("Critter name:?:");
         Scanner action = new Scanner(System.in);
         String name = action.nextLine();
         try {
             if (name != null) ;
         } catch (Exception e) {
-            System.out.println("Not valid, fool");
+            System.out.println("Not valid, mortal");
             //bumps back:
             createAnimal();
         }   //species:
-        System.out.println("Critter species:");
+        System.out.println("Critter species:?:");
         action = new Scanner(System.in);
         String species = action.nextLine();
         try {
             if (species != null) ;
         } catch (Exception e) {
-            System.out.println("Not valid, fool");
+            System.out.println("Not valid, mortal");
             createAnimal();
         }   //breed:
-        System.out.println("Critter breed:");
+        System.out.println("Critter breed:?:");
         action = new Scanner(System.in);
         String breed = action.nextLine();
         try {
             if (breed != null) {
             }
         } catch (Exception e) {
-            System.out.println("Not valid, fool");
+            System.out.println("Not valid, mortal");
             createAnimal();
         }   //description:
-        System.out.println("Critter description (if you're inclined):");
+        System.out.println("(Critter specifics:?:");
         action = new Scanner(System.in);
         String description = action.nextLine();
         //instantiate:
         Animal tempAnimal = newAnimal.createAnimal(name, species, breed, description);
         //return to:
-        System.out.println("\nCongrats, " + tempAnimal.getName() + " has been created\n");
-
-        //return waitForInt();
-
+        System.out.println("\nCongrats, " + tempAnimal.getName() + " has just been begotten!\n");
     }
 
     public static void viewAnimalDetails() {
-        System.out.println("-+- View a Critter -+-\n");
-        System.out.println(" Choose animal number (from List)");
+        System.out.println("-+- View Critter -+-\n");
+        System.out.println(" Critter's number?:?");
 
         /////////search by name?
         Scanner action = new Scanner(System.in);
         String userInput2 = action.nextLine();
         int viewInput = Integer.parseInt(userInput2);
 
-        //////limit inputs / valid # no zeroes/ int
+        //////exception handler +++   "Name:" list(1)
         String animalDetails = AnimalsService.viewAnimal(viewInput);
         System.out.println(animalDetails);
     }
 
     public static void editAnimal() {
 
-//        AnimalsService.editAnimal();
-        System.out.println("-+- Edit a Critter's Genes / Play God: -+-\n");
-        System.out.println(" Choose animal number (from List):");
+        System.out.println("-+- Splice Critter's Genes: -+-\n");
+        System.out.println(" Animal number (from List):?:");
 
-        /////////search by name?
         Scanner action = new Scanner(System.in);
         String userInput = action.nextLine();
         int editInput = Integer.parseInt(userInput);
         ArrayList thisEdit = AnimalsService.currentList;
-//        final ArrayList editListFinal = thisEdit;
-//        thisEdit.get(editInput + 1);
-//           (AnimalsService.thisEdit.get(editInput + 1)));
+
         int editIndex = (5 * editInput - 5);
         String editName = thisEdit.get(editIndex + 1).toString();
-        System.out.println("\n Enter new values for:\n " + editInput + ". "+ editName + "\nPress Enter to keep [current] value:");
+        System.out.println("\n New values for:?:\n " + editInput + ". " + editName);
 
-        //above: String editName = thisEdit.get(editIndex + 1).toString();
-        System.out.println("\nName: [" + editName + "]");
+        System.out.println("\nName:?: [" + editName + "]");
         String userInput1 = action.nextLine();
         if (userInput1 == null) {
             thisEdit.set(editIndex + 1, editName);
         } else {
-        thisEdit.set(editIndex + 1, userInput1);
-        //AnimalsService.editAnimal(editInput, userInput1);
+            thisEdit.set(editIndex + 1, userInput1);
         }
 
-        String editSpecies = thisEdit.get(editIndex +2).toString();
-        System.out.println("\nSpecies: [" + editSpecies + "]");
+        String editSpecies = thisEdit.get(editIndex + 2).toString();
+        System.out.println("\nSpecies:?: [" + editSpecies + "]");
         String userInput2 = action.nextLine();
         if (userInput2 == null) {
-            thisEdit.set(editIndex+2, editSpecies);
+            thisEdit.set(editIndex + 2, editSpecies);
         } else {
             thisEdit.set(editIndex + 2, userInput2);
         }
 
-        String editBreed = thisEdit.get(editIndex+3).toString();
-        System.out.println("\nBreed: [" + editBreed + "]");
+        String editBreed = thisEdit.get(editIndex + 3).toString();
+        System.out.println("\nBreed:?: [" + editBreed + "]");
         String userInput3 = action.nextLine();
         if (userInput3 == null) {
-            thisEdit.set(editIndex+3, editBreed);
+            thisEdit.set(editIndex + 3, editBreed);
         } else {
-            thisEdit.set(editIndex+3, userInput3);
+            thisEdit.set(editIndex + 3, userInput3);
         }
 
-        String editDescription = thisEdit.get(editInput +4).toString();
-        System.out.println("\nDescription: [" + editDescription + "]");
+        String editDescription = thisEdit.get(editInput + 4).toString();
+        System.out.println("\nSpecifics:?: [" + editDescription + "]");
         String userInput4 = action.nextLine();
         if (userInput4 == null) {
-            thisEdit.set(editIndex+4, editDescription);
+            thisEdit.set(editIndex + 4, editDescription);
         } else {
-            thisEdit.set(editIndex+4, userInput4);
+            thisEdit.set(editIndex + 4, userInput4);
         }
         AnimalsService.editAnimal(thisEdit);
-
     }
-
-
-
     //////limit inputs / valid # no zeroes/ int
 
-    //System.out.println(editAnimal);
 
 
     public static void deleteAnimal() {
-        System.out.println("-+- Put a critter down (delete) -+-");
+        System.out.println("-+- Decease Critter [del] -+-");
+
 
     }
 }
-
-
-//return;
-//privInput = waitForInt();
-//int input = Integer.parseInt(userInput);
-//return privInput;
-
-//catch (ArithmeticException)
-//privInput = waitForInt();
-//            try {
-//                privInput = Integer.parseInt(userInput);
-//            } catch (NumberFormatException e) {
-//                intToInput("Noah pities fools that can't tell letters from numbers, try again:");
-//            }
-//            return privInput;
-
-// int privInput = Integer.parseInt(userInput);
 

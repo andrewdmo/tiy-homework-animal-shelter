@@ -12,36 +12,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //public class MenuService() {
         MenuService menu = new MenuService();
-        int userInput = MenuService.waitForInt();
+        int userInput = MenuService.waitForInt("TEST start");
+
 
         while (true) {
 
             if (userInput == 1) {
                 MenuService.listAnimal();
-                userInput = MenuService.intToInput("Enter another number, fool:"/*, null*/);
+                userInput = MenuService.waitForInt("TEST 1");
             } else if (userInput == 2) {
                 MenuService.createAnimal();
                 //callMenuService();
-                userInput = MenuService.intToInput("Enter another number, fool:");
+                userInput = MenuService.waitForInt("TEST 2");
             } else if (userInput == 3) {
                 MenuService.viewAnimalDetails();
-                userInput = MenuService.intToInput("Enter another number, fool:");
+                userInput = MenuService.waitForInt("TEST 3");
             } else if (userInput == 4) {
                 MenuService.editAnimal();
-                userInput = MenuService.intToInput("Enter another number, fool:");
+                userInput = MenuService.waitForInt("TEST 4");
             } else if (userInput == 5) {
                 MenuService.deleteAnimal();
-                userInput = MenuService.intToInput("Enter another number, fool:");
+                userInput = MenuService.waitForInt("TEST 5");
             } else if (userInput == 6) {
-                System.out.println("\n-+- Fine then, enjoy extinction!... -+-");
+                System.out.println("\n-+- Fine, enjoy extinction!... -+-");
                 break;
-            } else MenuService.waitForInt();
+            } //     } else MenuService.waitForInt("TEST last in while loop");
         }
-    }
-
-    private static void main(int newInput) {
     }
 }
 

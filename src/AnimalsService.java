@@ -7,16 +7,12 @@ public class AnimalsService {
 
     static ArrayList currentList = Animal.listBuilder;
 
+
     //method for menu 1:
     public static String makeList() {
 
         return currentList.toString();
-
-//        String listAnimal = Animal.makeList();
-//        listAnimal = Animal.makeList();
-//        return currentList;
     }
-
 
     //method for menu 2:
     public Animal createAnimal(String name, String species, String breed, String description) {
@@ -53,29 +49,8 @@ public class AnimalsService {
 
     public static ArrayList editAnimal(ArrayList editedList) {
 
-//        int editInput, String editName, String editSpecies, String editBreed, String editDescription
-
-//        ArrayList currentList = Animal.listBuilder;
-//        int indexPoint = (5 * editInput) - 5;
-//        int one = indexPoint + 1;
-//        int two = indexPoint + 2;
-//        int three = indexPoint + 3;
-//        int four = indexPoint + 4;
-
-        System.out.println("pre-set TEST");
+        System.out.println("@preTEST \n");
         System.out.println(currentList);
-//        String listIndex = String.valueOf(editInput);
-//        String listName = (currentList.get(one)).toString();
-//        String listSpecies = (currentList.get(two)).toString();
-//        String listBreed = (currentList.get(three)).toString();
-//        String listDescription = (currentList.get(four)).toString();
-
-//        Animal.listBuilder.set(one, editValue);
-//        Animal.listBuilder.set(two, editValue);
-//        Animal.listBuilder.set(three, editValue);
-//        Animal.listBuilder.set(four, editValue);
-
-        //listBuilder = editedList.set(editedList);
 
         Animal.listEditor(editedList);
 
@@ -83,7 +58,7 @@ public class AnimalsService {
 
         //test:
 
-        System.out.println("post-set TEST " + currentList2);
+        System.out.println("@postTEST \n" + currentList2);
 
 
         return currentList;
