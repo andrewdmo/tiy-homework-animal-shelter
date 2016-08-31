@@ -38,13 +38,13 @@ public class Animal {
         listBuilder.add(species);
         listBuilder.add(breed);
         listBuilder.add(description);
-
-
     }
 
     //settin':
 
-    public void setIndexNum(int indexNum) {this.indexNum  = indexNum; }
+    public void setIndexNum(int indexNum) {
+        this.indexNum = indexNum;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -93,44 +93,4 @@ public class Animal {
     public String getDescription() {
         return description;
     }
-
-
-    //method called from AS:
-//    public static String makeList() {
-//
-//        return listBuilder.toString();
-//    }
-
-//    public static String editedList(int, String editValue) {
-//
-//        listBuilder.set((editValue + 1), )
-
-
-
-        //System.out.println(listBuilder.toString());
-
-
-
 }
-//return makeList;
-
-//    public ArrayList newList<>() {
-//        return makeList;
-
-//return makeList;
-//list setup:
-
-//        //method should add new entries to listBuilder:
-//    public static ArrayList<String> listBuilder() {
-//            ArrayList<String> listBuilder;
-//        //(name,species, breed, description) {
-//
-//            listBuilder.add(name);
-//            listBuilder.add(species);
-//            listBuilder.add(breed);
-//            listBuilder.add(description);
-//            return listBuilder;
-//            //listBuilder = listBuilder;
-//            //makeList(listBuilder);
-
-

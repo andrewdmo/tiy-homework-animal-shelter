@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -9,9 +10,11 @@ public class AnimalsService {
 
 
     //method for menu 1:
-    public static String makeList() {
+    public static ArrayList makeList() {
 
-        return currentList.toString();
+        return currentList;
+
+//        return currentList.toString();
     }
 
     //method for menu 2:
@@ -49,17 +52,7 @@ public class AnimalsService {
 
     public static ArrayList editAnimal(ArrayList editedList) {
 
-        System.out.println("@preTEST \n");
-        System.out.println(currentList);
-
         Animal.listEditor(editedList);
-
-        ArrayList currentList2 = currentList;
-
-        //test:
-
-        System.out.println("@postTEST \n" + currentList2);
-
 
         return currentList;
     }
