@@ -1,6 +1,4 @@
-import javax.lang.model.element.Name;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by andrewdmo on 8/19/16.
@@ -15,15 +13,15 @@ public class Animal {
     private String description;
 
     //will need:
-    static ArrayList listBuilder = new ArrayList();
+    static ArrayList masterList = new ArrayList();
 
-    //override toString:
-    public String toString(ArrayList listBuilder) {
+    //override toString in case needed:
+    public String toString(ArrayList masterList) {
         return toString();
     }
 
     //constructor:
-    public Animal(/*int indexNum*/ String name, String species, String breed, String description) {
+    public Animal(/*int indexNum,*/ String name, String species, String breed, String description) {
 
         indexNum = indexNum + 1;
         this.name = name;
@@ -33,11 +31,11 @@ public class Animal {
 
         //build master:
 
-        listBuilder.add(indexNum);
-        listBuilder.add(name);
-        listBuilder.add(species);
-        listBuilder.add(breed);
-        listBuilder.add(description);
+        masterList.add(indexNum);
+        masterList.add(name);
+        masterList.add(species);
+        masterList.add(breed);
+        masterList.add(description);
     }
 
     //settin':
@@ -65,13 +63,14 @@ public class Animal {
     //gettin':
 
     //'read only' (no setter):
-    public static ArrayList getListBuilder() {
-        return listBuilder;
+    public static ArrayList getmasterList() {
+        return masterList;
     }
 
+
     public static ArrayList listEditor(ArrayList editedList) {
-        listBuilder = editedList;
-        return listBuilder;
+        masterList = editedList;
+        return masterList;
     }
 
     public int getIndexNum() {
@@ -93,4 +92,5 @@ public class Animal {
     public String getDescription() {
         return description;
     }
+
 }

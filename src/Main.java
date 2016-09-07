@@ -31,7 +31,7 @@ public class Main {
             } else if (userInput == 6) {
                 System.out.println("\n-+- Fine, enjoy extinction!... -+-");
                 break;
-            } //     } else MenuService.waitForInt("TEST last in while loop");
+            }
         }
     }
 }
