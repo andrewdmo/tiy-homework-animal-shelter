@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Created by andrewdmo on 8/19/16.
  */
@@ -12,14 +10,6 @@ public class Animal {
     private String breed;
     private String description;
 
-    //will need:
-    static ArrayList masterList = new ArrayList();
-
-    //override toString in case needed:
-    public String toString(ArrayList masterList) {
-        return toString();
-    }
-
     //constructor:
     public Animal(/*int indexNum,*/ String name, String species, String breed, String description) {
 
@@ -28,18 +18,9 @@ public class Animal {
         this.species = species;
         this.breed = breed;
         this.description = description;
-
-        //build master:
-
-        masterList.add(indexNum);
-        masterList.add(name);
-        masterList.add(species);
-        masterList.add(breed);
-        masterList.add(description);
     }
 
     //settin':
-
     public void setIndexNum(int indexNum) {
         this.indexNum = indexNum;
     }
@@ -61,18 +42,6 @@ public class Animal {
     }
 
     //gettin':
-
-    //'read only' (no setter):
-    public static ArrayList getmasterList() {
-        return masterList;
-    }
-
-
-    public static ArrayList listEditor(ArrayList editedList) {
-        masterList = editedList;
-        return masterList;
-    }
-
     public int getIndexNum() {
         return indexNum;
     }
@@ -92,5 +61,6 @@ public class Animal {
     public String getDescription() {
         return description;
     }
+
 
 }
