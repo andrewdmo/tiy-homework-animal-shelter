@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="animalshelter@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+    <database id="1" name="animalshelter">
+      <object-id>16844</object-id>
+      <visible>1</visible>
+    </database>
+    <database id="2" name="postgres">
+      <object-id>12641</object-id>
+    </database>
+    <database id="3" name="andrewdmo">
+      <object-id>16385</object-id>
+    </database>
+    <database id="4" name="vyoo">
+      <object-id>16386</object-id>
+    </database>
+    <database id="5" name="animalshelter1">
+      <object-id>16869</object-id>
+    </database>
+    <database id="6" name="groupanimal">
+      <object-id>16903</object-id>
+    </database>
+    <database id="7" name="animals">
+      <object-id>16904</object-id>
+    </database>
+    <schema id="8" parent="1" name="public">
+      <object-id>2200</object-id>
+      <visible>1</visible>
+      <introspection-state-number>1433</introspection-state-number>
+      <introspection-timestamp>2016-09-16.17:10:12.477</introspection-timestamp>
+    </schema>
+    <schema id="9" parent="1" name="pg_catalog">
+      <object-id>11</object-id>
+    </schema>
+    <schema id="10" parent="1" name="pg_toast">
+      <object-id>99</object-id>
+    </schema>
+    <schema id="11" parent="1" name="pg_temp_1">
+      <object-id>11816</object-id>
+    </schema>
+    <schema id="12" parent="1" name="pg_toast_temp_1">
+      <object-id>11817</object-id>
+    </schema>
+    <schema id="13" parent="1" name="information_schema">
+      <object-id>12349</object-id>
+    </schema>
+    <sequence id="14" parent="8" name="animal_animal_id_pk_seq">
+      <object-id>16845</object-id>
+      <state-number>1341</state-number>
+    </sequence>
+    <sequence id="15" parent="8" name="animaltype_animaltype_pk_seq">
+      <object-id>16855</object-id>
+      <state-number>1344</state-number>
+    </sequence>
+    <sequence id="16" parent="8" name="notes_notes_pk_seq">
+      <object-id>16870</object-id>
+      <state-number>1358</state-number>
+    </sequence>
+    <table id="17" parent="8" name="animal">
+      <object-id>16847</object-id>
+      <state-number>1368</state-number>
+    </table>
+    <table id="18" parent="8" name="animaltype">
+      <object-id>16857</object-id>
+      <comment>lookup</comment>
+      <state-number>1348</state-number>
+    </table>
+    <table id="19" parent="8" name="notes">
+      <object-id>16872</object-id>
+      <comment>lookup but with duplicates</comment>
+      <state-number>1368</state-number>
+    </table>
+    <column id="20" parent="17" name="animal_id_pk">
+      <state-number>1341</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;animal_animal_id_pk_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="21" parent="17" name="animalname">
+      <state-number>1341</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="22" parent="17" name="animalbreed">
+      <state-number>1341</state-number>
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="23" parent="17" name="animaldescription">
+      <state-number>1341</state-number>
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="24" parent="17" name="animaltypeid">
+      <state-number>1347</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <index id="25" parent="17" name="animal_animal_id_pk_uindex">
+      <object-id>16853</object-id>
+      <columns>animal_id_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="26" parent="17" name="animal_pkey">
+      <object-id>16851</object-id>
+      <columns>animal_id_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="27" parent="17" name="animal_animalname_uindex">
+      <object-id>16854</object-id>
+      <columns>animalname</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="28" parent="17" name="animal_pkey">
+      <object-id>16852</object-id>
+      <columns>animal_id_pk</columns>
+      <underlying-index>animal_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="29" parent="17" name="animal_animaltype_lnk">
+      <object-id>16864</object-id>
+      <columns>animaltypeid</columns>
+      <ref-key>~.animaltype.animaltype_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="30" parent="18" name="animaltype_pk">
+      <state-number>1344</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;animaltype_animaltype_pk_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="31" parent="18" name="animaltypename">
+      <state-number>1344</state-number>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <index id="32" parent="18" name="animaltype_animaltype_pk_uindex">
+      <object-id>16863</object-id>
+      <columns>animaltype_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="33" parent="18" name="animaltype_pkey">
+      <object-id>16861</object-id>
+      <columns>animaltype_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="34" parent="18" name="animaltype_pkey">
+      <object-id>16862</object-id>
+      <columns>animaltype_pk</columns>
+      <underlying-index>animaltype_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="35" parent="19" name="notes_pk">
+      <state-number>1358</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;notes_notes_pk_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="36" parent="19" name="text">
+      <state-number>1364</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(500)|0</data-type>
+    </column>
+    <column id="37" parent="19" name="timestamp">
+      <state-number>1433</state-number>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="38" parent="19" name="animal_fk">
+      <state-number>1367</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <index id="39" parent="19" name="notes_notes_pk_uindex">
+      <object-id>16878</object-id>
+      <columns>notes_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="40" parent="19" name="notes_pkey">
+      <object-id>16876</object-id>
+      <columns>notes_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="41" parent="19" name="notes_pkey">
+      <object-id>16877</object-id>
+      <columns>notes_pk</columns>
+      <underlying-index>notes_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="42" parent="19" name="notes_animal_fk">
+      <object-id>16898</object-id>
+      <columns>animal_fk</columns>
+      <ref-key>~.animal.animal_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>
