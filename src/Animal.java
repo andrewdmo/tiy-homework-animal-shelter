@@ -12,8 +12,7 @@ public class Animal {
     private String breed;
     private String description;
 
-    //will need:
-    static ArrayList masterList = new ArrayList();
+
 
     //override toString in case needed:
     public String toString(ArrayList masterList) {
@@ -29,13 +28,10 @@ public class Animal {
         this.breed = breed;
         this.description = description;
 
-        //build master:
 
-        masterList.add(indexNum);
-        masterList.add(name);
-        masterList.add(species);
-        masterList.add(breed);
-        masterList.add(description);
+
+            //build master:
+
     }
 
     //settin':

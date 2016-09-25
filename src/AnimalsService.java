@@ -1,20 +1,46 @@
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created by andrewdmo on 8/19/16.
  */
 public class AnimalsService {
 
-    static ArrayList currentList = Animal.masterList;
+    ArrayList<Animal> masterList = new ArrayList();
 
-    public static String getName(int deleteInput) {
-        Object cL = currentList.get(5 * deleteInput - 4);
-        return cL.toString();
+    public AnimalsService() {
+        //will need:
     }
-    //method for menu 1:
-    // just used Animal.masterList from MS
-//    public static ArrayList makeList() {
-//        return currentList;//    }
+
+    public ArrayList listAnimals() {
+
+        ArrayList currentList = null;
+
+        int i;
+        for (i = 0; i < masterList.size(); i++) {
+
+            Animal viewAnimal = masterList.get(i);
+            int viewIndex = viewAnimal.getIndexNum();
+            String viewName = viewAnimal.getName();
+            String viewSpecies = viewAnimal.getSpecies();
+            String viewBreed = viewAnimal.getBreed();
+            String viewDescription = viewAnimal.getDescription();
+
+
+            currentList.add(viewIndex + ". \n" + viewName + "\n" + viewSpecies + "\n" + viewBreed + "\n" + viewDescription + "\n");
+        }
+
+
+        return currentList
+
+
+        ;
+
+    }
+
+    public String getName(int deleteInput) {
+        Animal namedAnimal = masterList.get(deleteInput);
+        return namedAnimal.getName();
+    }
 
 
     //method for menu 2:
@@ -24,42 +50,37 @@ public class AnimalsService {
         //set instance w/ properties rolling in:
         Animal newAnimal = new Animal(name, species, breed, description);
 
+        //add to list:
+        masterList.add(newAnimal);
         return newAnimal;
     }
 
 
     //method for menu 3:
-    public static String viewAnimal(int viewInput) {
+    public String viewAnimal(int viewInput) {
 
-        //ArrayList currentList = Animal.masterList;
-
-        //best math I've done in ages:
-        int indexPoint = (5 * viewInput) - 5;
-        int one = indexPoint + 1;
-        int two = indexPoint + 2;
-        int three = indexPoint + 3;
-        int four = indexPoint + 4;
+        Animal viewAnimal = masterList.get(viewInput);
 
         // get values @ index:
-        String listIndex = String.valueOf(viewInput);
-        Object listName = currentList.get(one);
-        Object listSpecies = currentList.get(two);
-        Object listBreed = currentList.get(three);
-        Object listDescription = currentList.get(four);
+        int viewIndex = viewAnimal.getIndexNum();
+        String viewName = viewAnimal.getName();
+        String viewSpecies = viewAnimal.getSpecies();
+        String viewBreed = viewAnimal.getBreed();
+        String viewDescription = viewAnimal.getDescription();
 
-        return listIndex + ". " + listName + " " + listSpecies + " " + listBreed + " " + listDescription;
+        return viewIndex + ". \n" + viewName + "\n" + viewSpecies + "\n" + viewBreed + "\n" + viewDescription;
     }
 
 
-    public static ArrayList editAnimal(ArrayList editedList) {
+    public ArrayList editAnimal(ArrayList editedList) {
         Animal.listEditor(editedList);
-        return currentList;
+        return masterList;
     }
 
 
-    public static boolean deleteAnimal(int deleteInput) {
+    public boolean deleteAnimal(int deleteInput) {
         //setup:
-        ArrayList deleteList = AnimalsService.currentList;
+        ArrayList deleteList = masterList;
         int indexPoint = deleteInput * 5 - 5;
 
         deleteList.subList(indexPoint, indexPoint + 5).clear();

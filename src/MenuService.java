@@ -1,14 +1,18 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  * Created by andrewdmo on 8/19/16.
  */
 public class MenuService {
-    //  int preNum = 0;
 
-    public MenuService() {
+   AnimalsService animalsService = new AnimalsService();
+    ArrayList<Animal> currentList = animalsService.listAnimals();
+
+
+    public MenuService(AnimalsService animalsService) {
+
         System.out.println("\n-+- Welcome to Noah's Park, human!! -+- \n | \n-+- ...we're all endangered here!! -+-\n | ");
 
         //(default animals:)
@@ -16,7 +20,7 @@ public class MenuService {
         Animal example2 = new Animal("Simba", "cat", "scaredy", "1 life left");
     }
 
-    public static int waitForInt(String defaultQues) {
+    public int waitForInt(String defaultQues) {
 
         System.out.println("-+- Mane Menewe: -+-\n" + "\n" +
             "1) List critters\n" +
@@ -29,119 +33,122 @@ public class MenuService {
         return intToInput(defaultQues);
     }
 
-    public static int intToInput(String defaultQues, int min, int max) {
+    public int intToInput(String defaultQues, int min, int max) {
 
         System.out.println(defaultQues);
         Scanner action = new Scanner(System.in);
         String userInput = action.nextLine();
-        //credit to IntelliJ:
-        AtomicInteger privInput = new AtomicInteger();
-        try {
-            privInput.set(Integer.parseInt(userInput));
 
-            if (privInput.get() > max || privInput.get() < min) {
+        int privInput;
+
+        try {
+            privInput = Integer.parseInt(userInput);
+
+            if (privInput > max || privInput < min) {
                 return waitForInt("Noah pities the fool!...number in range:");
             }
         } catch (Exception e) {
             return waitForInt("Noah pities fools that can't tell letters from numbers!!...try again, Darwin:");
         }
-        return privInput.get();
+
+        return privInput;
     }
 
-    public static int intToInput(String message) {
+    public int intToInput(String message) {
 
         System.out.println(message);
         Scanner action = new Scanner(System.in);
         String userInput = action.nextLine();
         //credit to IntelliJ:
-        AtomicInteger privInput = new AtomicInteger();
+        int privInput;
         try {
-            privInput.set(Integer.parseInt(userInput));
+            privInput = Integer.parseInt(userInput);
 
-            if (privInput.get() > 6 || privInput.get() < 1) {
+            if (privInput > 6 || privInput < 1) {
                 return waitForInt("Noah pities the fool!...number in range:");
             }
         } catch (Exception e) {
             return waitForInt("Noah pities fools that can't tell letters from numbers!!...try again, Darwin:");
         }
-        return privInput.get();
+        return privInput;
+    }
+
+    private String waitForString(String message, boolean required) {
+        System.out.println(message);
+        Scanner action = new Scanner(System.in);
+        String input = action.nextLine();
+
+        if (required && input.trim().length() == 0) {
+            System.out.println("\nSay somethin'!:\n");
+
+            input = waitForString(message, required);
+        }
+        return input.trim();
+    }
+
+    private String waitForString(String message, String defaultInput) {
+        String input = waitForString(message, false);
+
+        if (input.isEmpty()) {
+            return defaultInput;
+        } else {
+            return input;
+        }
     }
 
 
-    public static void listAnimal() {
+    public void listAnimal() {
 
-        //instantiate, originally used makeList from AS:
-        //NEED TO FORMAT (just Name and species)
-        ArrayList currentList = Animal.masterList;
         System.out.println("\n-+- Critters aboard: -+-\n");
-        System.out.println(currentList);
-        //System.out.println(currentList.toString());
+
+        System.out.println(animalsService.listAnimals());
+
+
+
+
     }
 
-    public static void /*String/*[]*/ createAnimal() {
+
+    public Animal /*String/*[]*/ createAnimal() {
 
         //instantiate::
         AnimalsService newAnimal = new AnimalsService();
 
         System.out.println("-+- Create Critter -+-\n");
         //name:
-        System.out.println("Critter name:?:");
-        Scanner action = new Scanner(System.in);
-        String name = action.nextLine();
-        try {
-            if (name != "");
-        } catch (Exception e) {
-            System.out.println("Not valid, mortal");
-            createAnimal();
-        }   //species:
-        System.out.println("Critter species:?:");
-        action = new Scanner(System.in);
-        String species = action.nextLine();
-        try {
-            if (species != "") ;
-        } catch (Exception e) {
-            System.out.println("Not valid, mortal");
-            createAnimal();
-        }   //breed:
-        System.out.println("Critter breed:?:");
-        action = new Scanner(System.in);
-        String breed = action.nextLine();
-        try {
-            if (breed != "") {
-            }
-        } catch (Exception e) {
-            System.out.println("Not valid, mortal");
-            createAnimal();
-        }  //description:
-        System.out.println("(Optional) Critter specifics:?:");
-        action = new Scanner(System.in);
-        String description = action.nextLine();
+        String name = waitForString("Critter name:?:", true);
+        //species:
+        String species = waitForString("Critter species:?:", true);
+
+        //breed:
+        String breed = waitForString("Critter breed:?:", true);
+
+        //description:
+        String description = waitForString("(Optional) Critter specifics:?:", "[Empty]");
+
         //instantiate:
         Animal tempAnimal = newAnimal.createAnimal(name, species, breed, description);
+
         //return to:
-        System.out.println("\nCongrats, " + tempAnimal.getName() + " has just been begotten!\n");
+        System.out.println("\nCongrats, " + tempAnimal.getName() + " has just been begat!\n");
+        return tempAnimal;
     }
 
-    public static void viewAnimalDetails() {
+    public void viewAnimalDetails() {
         System.out.println("-+- View Critter -+-\n");
-        System.out.println(" Critter's number?:?");
-
-        /////////search by name?
-        Scanner action = new Scanner(System.in);
-        String userInput2 = action.nextLine();
-        int viewInput = Integer.parseInt(userInput2);
+        listAnimal();
 
         //////exception handler +++   "Name:" list(1)
-        String animalDetails = AnimalsService.viewAnimal(viewInput);
+        String animalDetails = animalsService.viewAnimal(intToInput(" Critter's number?:?", 1, currentList.size()));
         System.out.println(animalDetails);
     }
 
-    public static void editAnimal() {
+    public void editAnimal() {
 
         Scanner action = new Scanner(System.in);
 
 
-        ArrayList thisEdit = AnimalsService.currentList;
+        ArrayList thisEdit = animalsService.masterList;
         System.out.println("-+- Splice Critter's Genes: -+-\n");
         int max = thisEdit.size();
         int editInput = intToInput(" Animal number (from List):?:", 1, max - 4);
@@ -184,12 +191,13 @@ public class MenuService {
         } else {
             thisEdit.set(editIndex + 4, newDetails);
         }
-        AnimalsService.editAnimal(thisEdit);
+        animalsService.editAnimal(thisEdit);
     }
     //////exceptions!! inputs / valid # no zeroes/ int
 
-    public static void deleteAnimal() {
-        ArrayList deleteList = AnimalsService.currentList;
+    public void deleteAnimal() {
+        ArrayList deleteList = animalsService.masterList;
+        AnimalsService animalsService = new AnimalsService();
 
         System.out.println("\n-+- Decease Critter -+-\n");
         System.out.println(" Animal number (from List):?:");
@@ -198,8 +206,8 @@ public class MenuService {
         String userInput = action.nextLine();
         int deleteInput = Integer.parseInt(userInput);
 
-        String deadName = AnimalsService.getName(deleteInput);
-        AnimalsService.deleteAnimal(deleteInput);
+        String deadName = animalsService.getName(deleteInput);
+        animalsService.deleteAnimal(deleteInput);
         System.out.println("Congrats Lord Homo, " + "'" + deadName + "' is now extinct.  One less bowl to fill!");
     }
 }

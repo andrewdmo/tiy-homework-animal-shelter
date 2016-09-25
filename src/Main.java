@@ -4,30 +4,34 @@
  */
 //now I see why they outsource:
 public class Main {
+    Animal animal;
+    AnimalsService animalsService = new AnimalsService(animal);
+    MenuService menuService = new MenuService(animalsService);
 
-    public static void main(String[] args) {
 
-        MenuService menu = new MenuService();
-        int userInput = MenuService.waitForInt("Which number, man:?:");
+    public void main(String[] args) {
+
+       // MenuService menu = new MenuService();
+        int userInput = menuService.waitForInt("Which number, man:?:");
 
         while (true) {
 
             if (userInput == 1) {
-                MenuService.listAnimal();
-                userInput = MenuService.waitForInt("Another number:?:");
+                menuService.listAnimal();
+                userInput = menuService.waitForInt("Another number:?:");
             } else if (userInput == 2) {
-                MenuService.createAnimal();
+                menuService.createAnimal();
                 //callMenuService();
-                userInput = MenuService.waitForInt("Another number:?:");
+                userInput = menuService.waitForInt("Another number:?:");
             } else if (userInput == 3) {
-                MenuService.viewAnimalDetails();
-                userInput = MenuService.waitForInt("Another number:?:");
+                menuService.viewAnimalDetails();
+                userInput = menuService.waitForInt("Another number:?:");
             } else if (userInput == 4) {
-                MenuService.editAnimal();
-                userInput = MenuService.waitForInt("Another number:?:");
+                menuService.editAnimal();
+                userInput = menuService.waitForInt("Another number:?:");
             } else if (userInput == 5) {
-                MenuService.deleteAnimal();
-                userInput = MenuService.waitForInt("Another number:?:");
+                menuService.deleteAnimal();
+                userInput = menuService.waitForInt("Another number:?:");
             } else if (userInput == 6) {
                 System.out.println("\n-+- Fine, enjoy extinction!... -+-");
                 break;
