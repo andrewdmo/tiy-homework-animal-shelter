@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8546ef4-4c95-4b17-aeb5-d2282d6198f6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b8546ef4-4c95-4b17-aeb5-d2282d6198f6" name="Default" comment="" />
     <ignored path="tiy-homework-animal-shelter.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -123,13 +120,13 @@
       <file leaf-file-name="AnimalTypeRepository.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/repository/AnimalTypeRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+            <state relative-caret-position="210">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
-                <marker date="1474647684000" expanded="true" signature="448:485" ph="SELECT anima... animaltype" />
-                <marker date="1474647684000" expanded="true" signature="1211:1254" ph="SELECT anima... animaltype" />
-                <marker date="1474647684000" expanded="true" signature="1781:1825" ph="SELECT anima... animaltype" />
-                <marker date="1474647684000" expanded="true" signature="2249:2298" ph="SELECT anima... animaltype" />
+                <marker date="1474841802000" expanded="true" signature="448:485" ph="SELECT anima... animaltype" />
+                <marker date="1474841802000" expanded="true" signature="1211:1254" ph="SELECT anima... animaltype" />
+                <marker date="1474841802000" expanded="true" signature="1781:1825" ph="SELECT anima... animaltype" />
+                <marker date="1474841802000" expanded="true" signature="2249:2298" ph="SELECT anima... animaltype" />
               </folding>
             </state>
           </provider>
@@ -389,6 +386,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -477,9 +477,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1448,11 +1445,12 @@
       <workItem from="1474632668450" duration="2729000" />
       <workItem from="1474647868451" duration="688000" />
       <workItem from="1474813576917" duration="148000" />
+      <workItem from="1474841831162" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="588061000" />
+    <option name="totallyTimeSpent" value="588077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1465,7 +1463,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1378" height="812" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32769045" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1480,7 +1478,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3240612" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13847305" sideWeight="0.49275362" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13997006" sideWeight="0.49275362" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14595808" sideWeight="0.52205884" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18218623" sideWeight="0.6049926" order="10" side_tool="true" content_ui="tabs" x="599" y="165" width="212" height="487" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2083,13 +2081,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/repository/AnimalTypeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <marker date="1474647684000" expanded="true" signature="448:485" ph="SELECT anima... animaltype" />
-            <marker date="1474647684000" expanded="true" signature="1211:1254" ph="SELECT anima... animaltype" />
-            <marker date="1474647684000" expanded="true" signature="1781:1825" ph="SELECT anima... animaltype" />
-            <marker date="1474647684000" expanded="true" signature="2249:2298" ph="SELECT anima... animaltype" />
+            <marker date="1474841802000" expanded="true" signature="448:485" ph="SELECT anima... animaltype" />
+            <marker date="1474841802000" expanded="true" signature="1211:1254" ph="SELECT anima... animaltype" />
+            <marker date="1474841802000" expanded="true" signature="1781:1825" ph="SELECT anima... animaltype" />
+            <marker date="1474841802000" expanded="true" signature="2249:2298" ph="SELECT anima... animaltype" />
           </folding>
         </state>
       </provider>
