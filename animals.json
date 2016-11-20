@@ -1,14 +1,15 @@
 [
   {
-    "name": "AAAA",
-    "species": "AAAA",
-    "breed": "AAAAA",
-    "description": "AAAAA"
+    "name": "Fido",
+    "species": "Dog",
+    "breed": "Yipper",
+    "description": "He’s a runt"
   },
-  {
-    "name": "CCCC",
-    "species": "CCCCC",
-    "breed": "CCCCC",
-    "description": "CCCC"
+
+{
+    "name": "Simba",
+    "species": "Cat",
+    "breed": "Scaredy",
+    "description": "One life left"
   }
 ]

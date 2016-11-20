@@ -1,8 +1,9 @@
-//package Animal;
-//import entity.Animal;
+package service;
 
-import java.io.IOException;
-import java.util.*;
+import entity.Animal;
+
+import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -12,26 +13,19 @@ import java.util.*;
 public class MenuService {
 
 
-    AnimalService animalService = new AnimalService();
-    ArrayList<Animal> currentList = animalService.listAnimals();
+    public MenuService() {
 
+        System.out.println("\n-+- Welcome to Noah's Park, human!! -+- \n | \n-+- ...we're all endangered here... -+-\n | ");
 
-    public MenuService(AnimalService animalService) {
-
-            System.out.println("\n-+- Welcome to Noah's Park, human!! -+- \n | \n-+- ...we're all endangered here... -+-\n | ");
-
-            //(default animals:)
-            Animal example1 = new Animal("Fido", "Dog", "Yipper", "He's a runt");
-            Animal example2 = new Animal("Simba", "Cat", "Scaredy", "One life left");
-        }
-
-    MenuService menuService;
-    static int length = MenuService.length;
+        //(default animals:)
+        Animal example1 = new Animal("Fido", "Dog", "Yipper", "He's a runt");
+        Animal example2 = new Animal("Simba", "Cat", "Scaredy", "One life left");
+    }
 
 
     Scanner action = new Scanner(System.in);
 
-    //   AnimalService animalService;
+    //   service.AnimalService animalService;
 
     public int waitForInt(String defaultQues) {
 
@@ -45,6 +39,7 @@ public class MenuService {
 
         return intToInput(defaultQues, 1, 6);
     }
+
 
     public int intToInput(String defaultQues, int min, int max) {
 
@@ -86,6 +81,7 @@ public class MenuService {
         return privInput;
     }
 
+
     private String waitForString(String message, boolean required) {
         System.out.println(message);
         Scanner action = new Scanner(System.in);
@@ -98,6 +94,7 @@ public class MenuService {
         return input.trim();
     }
 
+
     private String waitForString(String message, String defaultInput) {
         String input = waitForString(message, true);
 
@@ -109,41 +106,19 @@ public class MenuService {
     }
 
 
-    public void listAnimal() {
+    public void listAnimal(List<Animal> animalList) {
 
         System.out.println("\n-+- Critters aboard: -+-\n");
 
-        System.out.println(animalService.listAnimals());
-
-
-    }
-
-    public void viewAnimalDetails() {
-        System.out.println("-+- View Critter -+-\n");
-        listAnimal();
-
-        //////exception handler +++   "Name:" list(1)
-        String animalDetails = animalService.viewAnimal(intToInput(" Critter's number?:?", 1, currentList.size())).toString();
-        System.out.println(animalDetails);
-    }
-
-    public void editAnimal() {
-
-    }
-        public void menuList (List < Animal > animalList) {
-
-            System.out.println("\n-+- Critters aboard: -+-\n");
-
-            if (animalList.size() == 0) {
-                System.out.println("\nArk's empty!  Go trap something.\n");
-            } else {
-                for (int x = 0; x < animalList.size(); x++) {
-                    Animal animal = animalList.get(x);
-                    System.out.printf("%s) %s\n", (x + 1) + ".", animal.getName() + "\n", x);
-                }
+        if (animalList.size() == 0) {
+            System.out.println("\nArk's empty!  Go trap something.\n");
+        } else {
+            for (int x = 0; x < animalList.size(); x++) {
+                Animal animal = animalList.get(x);
+                System.out.printf("%s) %s\n", x, animal.getName());
             }
-            //System.out.println();
         }
+    }
 
 
     public Animal menuCreate() {
@@ -159,57 +134,45 @@ public class MenuService {
     }
 
 
-p
+    public void menuDetails(Animal animal) {
+        System.out.printf("-+- View Critter -+-\n" +
+                "\n" +
+                "Name: %s\n" +
+                "Species: %s\n" +
+                "Breed: %s\n" +
+                "Description: %s\n",
+            animal.getName(),
+            animal.getSpecies(),
+            animal.getBreed(),
+            animal.getDescription());
 
-public Animal menuEdit(Animal animal){
-
-
-    System.out.println("\nNew values for... "+animal.getName()+" ('enter' for current):?:");
-
-    String name=waitForString(
-    String.format("Name [%s]:?: ",animal.getName()),
-    animal.getName());
-    String species=waitForString(
-    String.format("Species [%s]:?: ",animal.getSpecies()),
-    animal.getSpecies());
-    String breed=waitForString(
-    String.format("Breed [%s]:?: ",animal.getBreed()),
-    animal.getBreed());
-    String description=waitForString(
-    String.format("Specifics [%s]:?:",animal.getDescription()),animal.getDescription());
-
-        String editDescription=thisEdit.get(editIndex+4).toString();
-            System.out.println("\nSpecifics:?: ["+editDescription+"]");
-            String newDetails=action.nextLine();
-            if(newDetails.equals("")){
-            thisEdit.set(editIndex+4,editDescription);
-            }else{
-            thisEdit.set(editIndex+4,newDetails);
-            }
-            animalsService.editAnimal(thisEdit);
-
-            return new Animal(name,species,breed,description);
-
-public void deleteAnimal(){
-    ArrayList deleteList=animalsService.masterList;
-    AnimalsService animalsService=new AnimalsService();
-
-    public void deleteAnimal()throws IOException{
-
-
-    //AnimalRepository animalsList;
     }
 
-//        System.out.println("Congrats Lord Homo, " + "'" + Animal.getName(input) + "' is now extinct.  One less bowl to fill!");
-//    }
 
-public void displayNoSuchAnimal(){
-    System.out.println("\nThat animal's either already et or otherwise dispatched.\n");
+    public Animal menuEdit(Animal animal) {
 
-        String deadName=animalsService.getName(deleteInput);
-            animalsService.deleteAnimal(deleteInput);
-            System.out.println("Congrats Lord Homo, "+"'"+deadName+"' is now extinct.  One less bowl to fill!");
+        System.out.println("\nNew values for... " + animal.getName() + " ('Enter' for current):?:");
 
-            }
-            }
+        String name = waitForString(
+            String.format("Name [%s]:?: ", animal.getName()),
+            animal.getName());
+        String species = waitForString(
+            String.format("Species [%s]:?: ", animal.getSpecies()),
+            animal.getSpecies());
+        String breed = waitForString(
+            String.format("Breed [%s]:?: ", animal.getBreed()),
+            animal.getBreed());
+        String description = waitForString(
+            String.format("Specifics [%s]:?:", animal.getDescription()), animal.getDescription());
 
+        if (animal != null) {
+            System.out.printf("\nCongrats, %s has been horribly altered!!\n", animal.getName());
+            return new Animal(name, species, breed, description);
+
+        } else {
+            System.out.printf("Nature F'd up and %s was not begat", name);
+            menuEdit(animal);
+            return null;
+        }
+    }
+}

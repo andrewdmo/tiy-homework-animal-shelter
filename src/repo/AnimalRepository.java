@@ -1,3 +1,5 @@
+package repo;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -18,7 +20,7 @@ public class AnimalRepository {
     private final Path filePath;
     private final Gson gson;
 
-   ArrayList<Animal> masterList = new ArrayList<>();
+    private ArrayList<Animal> masterList = new ArrayList<>();
 
     //constructor:
     public AnimalRepository(String file) throws IOException {
@@ -42,7 +44,7 @@ public class AnimalRepository {
     }
 
     //method 1:
-    public ArrayList<Animal> listAnimal() {
+    public ArrayList<Animal> listAnimals() {
         return masterList;
     }
 
