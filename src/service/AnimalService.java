@@ -1,5 +1,7 @@
+import entity.Animal;
+
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by andrewdmo on 8/19/16.
@@ -14,7 +16,7 @@ public class AnimalService {
     }
 
     //menu 1:
-    public List<Animal> listAnimal() {
+    public ArrayList<Animal> listAnimals() {
         return this.animalRepository.listAnimal();
     }
 
@@ -58,7 +60,7 @@ public class AnimalService {
 
 //    public static String viewAnimal(int viewInput) {
 //
-//        //ArrayList currentList = Animal.masterList;
+//        //ArrayList currentList = entity.Animal.masterList;
 //
 //        //best math I've done in ages:
 //        int indexPoint = (5 * viewInput) - 5;
@@ -79,7 +81,7 @@ public class AnimalService {
 
 
 //    public static ArrayList editAnimal(ArrayList editedList) {
-//        Animal.listEditor(editedList);
+//        entity.Animal.listEditor(editedList);
 //        return currentList;
 //    }
 //
@@ -98,7 +100,7 @@ public class AnimalService {
 //            deleteList.set(i, v);
 //            v++;
 //        }
-//        Animal.listEditor(deleteList);
+//        entity.Animal.listEditor(deleteList);
 //
 //        return true;
 //    }
