@@ -41,7 +41,7 @@ public class Main {
             } else if (userInput == 3) {
                 List<Animal> animalList = animalService.listAnimals();
                 int index = menuService.intToInput("-+- View Critter Specifics -+-\n\nCritter number(from List):?:", 1, animalList.size());
-                Animal animal = animalService.getAnimal(index);
+                Animal animal = animalService.getAnimal(index-1);
                 menuService.menuDetails(animal);
                 userInput = menuService.waitForInt("Next unnatural selection:?:");
 
@@ -50,18 +50,18 @@ public class Main {
                 List<Animal> animalList = animalService.listAnimals();
                 int index = menuService.intToInput("-+- Splice Critter's Genes: -+-\n\nCritter number(from List):?:", 1, animalList.size());
                 //get animal:
-                Animal animal = animalService.getAnimal(index);
+                Animal animal = animalService.getAnimal(index-1);
                 //get new data:
                 Animal editedAnimal = menuService.menuEdit(animal);
                 //save edited:
-                animalService.editAnimal(index, editedAnimal);
+                animalService.editAnimal(index-1, editedAnimal);
                 userInput = menuService.waitForInt("Next unnatural selection:?:");
 
 
             } else if (userInput == 5) {
                 List<Animal> animalList = animalService.listAnimals();
                 int index = menuService.intToInput("\n-+- Decease Critter -+-\n\nCritter number (from List):?:", 1, animalList.size());
-                String deadName = animalService.deleteAnimal(index);
+                String deadName = animalService.deleteAnimal(index-1);
                 System.out.println("Congrats Lord Homo, " + "'" + deadName + "' is now extinct.  One less bowl to fill!");
                 userInput = menuService.waitForInt("Next unnatural selection:?:");
 

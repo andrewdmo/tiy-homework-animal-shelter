@@ -96,7 +96,7 @@ public class MenuService {
 
 
     private String waitForString(String message, String defaultInput) {
-        String input = waitForString(message, true);
+        String input = waitForString(message, false);
 
         if (input.isEmpty()) {
             return defaultInput;
@@ -115,7 +115,7 @@ public class MenuService {
         } else {
             for (int x = 0; x < animalList.size(); x++) {
                 Animal animal = animalList.get(x);
-                System.out.printf("%s) %s\n", x, animal.getName());
+                System.out.printf("%s) %s\n", x + 1, animal.getName());
             }
         }
     }
@@ -145,7 +145,6 @@ public class MenuService {
             animal.getSpecies(),
             animal.getBreed(),
             animal.getDescription());
-
     }
 
 

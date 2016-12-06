@@ -5,11 +5,16 @@
     "breed": "Yipper",
     "description": "He’s a runt"
   },
-
-{
+  {
     "name": "Simba",
     "species": "Cat",
     "breed": "Scaredy",
     "description": "One life left"
+  },
+  {
+    "name": "Splinter",
+    "species": "Rat",
+    "breed": "Albino",
+    "description": "Radioactive AND a master ninja"
   }
 ]
