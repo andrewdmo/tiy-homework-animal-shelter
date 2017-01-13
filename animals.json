@@ -1,20 +1,20 @@
 [
   {
     "name": "Fido",
-    "species": "Dog",
-    "breed": "Yipper",
-    "description": "He’s a runt"
+    "species": "Mutt",
+    "breed": "Many",
+    "description": "Mange improving"
   },
   {
     "name": "Simba",
-    "species": "Cat",
-    "breed": "Scaredy",
-    "description": "One life left"
+    "species": "House cat",
+    "breed": "Checkered",
+    "description": "Running out of lives"
   },
   {
     "name": "Splinter",
     "species": "Rat",
-    "breed": "Albino",
-    "description": "Radioactive AND a master ninja"
+    "breed": "Master",
+    "description": "Radioactive, patient"
   }
 ]
