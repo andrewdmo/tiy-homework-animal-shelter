@@ -1,20 +1,14 @@
 [
   {
-    "name": "Fido",
-    "species": "Mutt",
-    "breed": "Many",
-    "description": "Mange improving"
-  },
-  {
-    "name": "Simba",
-    "species": "House cat",
-    "breed": "Checkered",
-    "description": "Running out of lives"
-  },
-  {
     "name": "Splinter",
     "species": "Rat",
     "breed": "Master",
     "description": "Radioactive, patient"
+  },
+  {
+    "name": "Simba",
+    "species": "Cat",
+    "breed": "Scaredy",
+    "description": "\u0027meow\u0027"
   }
 ]

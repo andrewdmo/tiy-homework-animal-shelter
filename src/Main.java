@@ -60,14 +60,14 @@ public class Main {
 
             } else if (userInput == 5) {
                 List<Animal> animalList = animalService.listAnimals();
-                int index = menuService.intToInput("\n-+- Decease Critter -+-\n\nCritter number (from List):?:", 1, animalList.size());
+                int index = menuService.intToInput("\n-+- Terminate Critter -+-\n\nCritter number (from List):?:", 1, animalList.size());
                 String deadName = animalService.deleteAnimal(index-1);
                 System.out.println("Congrats Lord Homo, " + "'" + deadName + "' is now extinct.  One less bowl to fill!");
                 userInput = menuService.waitForInt("Next unnatural selection:?:");
 
 
             } else if (userInput == 6) {
-                System.out.println("\n-+- Fine, enjoy extinction!... -+-");
+                System.out.println("\n-+- Fine, enjoy extinction!... -+-");1
                 break;
             }
         }
