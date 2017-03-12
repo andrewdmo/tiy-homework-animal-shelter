@@ -4,6 +4,8 @@
  */
 //now I see why they outsource:
 
+package src.Main;
+
 import entity.Animal;
 import repo.AnimalRepository;
 import service.AnimalService;
@@ -11,7 +13,6 @@ import service.MenuService;
 
 import java.io.IOException;
 import java.util.List;
-//import class service.AnimalService;
 
 public class Main {
 
@@ -67,7 +68,7 @@ public class Main {
 
 
             } else if (userInput == 6) {
-                System.out.println("\n-+- Fine, enjoy extinction!... -+-");1
+                System.out.println("\n-+- Fine, enjoy extinction!... -+-");
                 break;
             }
         }
